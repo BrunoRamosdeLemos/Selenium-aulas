@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="31993" started-at="2019-08-13T18:20:55Z" finished-at="2019-08-13T18:21:27Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="31993" started-at="2019-08-13T18:20:55Z" finished-at="2019-08-13T18:21:27Z">
+      <class name="tests.Aula5">
+        <test-method status="PASS" signature="setupTest()[pri:0, instance:tests.Aula5@22e5f96e]" name="setupTest" is-config="true" duration-ms="18900" started-at="2019-08-13T18:20:55Z" finished-at="2019-08-13T18:21:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupTest -->
+        <test-method status="PASS" signature="Test_Title()[pri:0, instance:tests.Aula5@22e5f96e]" name="Test_Title" duration-ms="16" started-at="2019-08-13T18:21:14Z" finished-at="2019-08-13T18:21:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test_Title -->
+        <test-method status="PASS" signature="registerTest()[pri:1, instance:tests.Aula5@22e5f96e]" name="registerTest" duration-ms="13034" started-at="2019-08-13T18:21:14Z" finished-at="2019-08-13T18:21:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerTest -->
+      </class> <!-- tests.Aula5 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
