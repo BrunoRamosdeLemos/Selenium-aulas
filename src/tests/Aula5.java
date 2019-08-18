@@ -23,15 +23,17 @@ public class Aula5 {
 
   @BeforeTest
   public void setupTest() {
-	  	System.setProperty("webdriver.gecko.driver",
-	            "C:\\Dev\\geckodriver-v0.24.0-win64\\geckodriver.exe");
 		driver = new FirefoxDriver();
+		
+		//home page
 		driver.navigate().to(testURL);
+		driver.manage().window().maximize();		
+		//timeouts
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
+		//test user used 
 		int no_email = (int)(Math.random() * 1001);
 		String test_email = "joao-doe"+ no_email +"@example.com";
-		
 		test_user = new Customer(
 					"João",
 					"Doe",
@@ -54,7 +56,7 @@ public class Aula5 {
   }
   
   @Test(priority = 1)
-	public void registerTest() {
+	public void Test_register() {
 	  //go to register page
 		WebElement log = driver.findElement(By.className("login"));
 		log.click();
@@ -152,39 +154,24 @@ public class Aula5 {
 	  
 	  WebElement faded_short_sleeve_img = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".product_img_link > img:nth-child(1)")));
 	  
-	  Actions action = new Actions(driver);
-	  action.moveToElement(
-			  faded_short_sleeve_img
-			  ).click(
-					  wait.until(
-							  ExpectedConditions.elementToBeClickable(
-									  By.cssSelector(".ajax_add_to_cart_button > span:nth-child(1)")
-									  )
-							  )
-					  ).build().perform();
-	  //WebElement success_add = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".layer_cart_product > h2:nth-child(2)")));
-	  //assertTrue(success_add.getText().contains("Product successfully added to your shopping cart"));
+	  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", faded_short_sleeve_img);
+	  
+	  Actions actions = new Actions(driver);
+	  actions.moveToElement(faded_short_sleeve_img).moveToElement(driver.findElement(By.cssSelector(".ajax_add_to_cart_button > span:nth-child(1)"))).click().perform();
+	  
+	  WebElement success_add = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".layer_cart_product > h2:nth-child(2)")));
+	  assertTrue(success_add.getText().contains("Product successfully added to your shopping cart"));
   }
-  
   @Test(priority = 3)
   public void Test_send_friend() {
 	  WebDriverWait wait = new WebDriverWait(driver, 10);
 	  WebElement continue_shopping = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".continue > span:nth-child(1)")));
 	  continue_shopping.click();
 	  
-	  
 	  WebElement faded_short_sleeve_img = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".product_img_link > img:nth-child(1)")));
 	  
-	  Actions action = new Actions(driver);
-	  action.moveToElement(
-			  faded_short_sleeve_img
-			  ).click(
-					  wait.until(
-							  ExpectedConditions.elementToBeClickable(
-									  By.cssSelector(".lnk_view > span:nth-child(1)")
-									  )
-							  )
-					  ).build().perform();
+	  Actions actions = new Actions(driver);
+	  actions.moveToElement(faded_short_sleeve_img).moveToElement(driver.findElement(By.cssSelector(".lnk_view > span:nth-child(1)"))).click().perform();
 	  
 	  WebElement send_friend = wait.until(ExpectedConditions.elementToBeClickable(By.id("send_friend_button")));
 	  send_friend.click();
@@ -210,29 +197,29 @@ public class Aula5 {
 	  
 	  WebElement cart = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".shopping_cart > a:nth-child(1) > b:nth-child(1)")));
 	  
-	  Actions action = new Actions(driver);
-	  action.moveToElement(
-			  cart
-			  ).click(
-					  wait.until(
-							  ExpectedConditions.elementToBeClickable(
-									  By.cssSelector("#button_order_cart > span:nth-child(1)")
-									  )
-							  )
-					  ).build().perform();
+	  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", cart);
 	  
+	  Actions actions = new Actions(driver);
+	  actions.moveToElement(cart).moveToElement(driver.findElement(By.cssSelector("#button_order_cart > span:nth-child(1)"))).click().perform();
+	  
+	//checkout page 1
 	  WebElement go_to_checkout1 = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".standard-checkout > span:nth-child(1)")));
 	  go_to_checkout1.click();
 	  
+	//checkout page 2
 	  WebElement go_to_checkout2 = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.button:nth-child(4) > span:nth-child(1)")));
 	  go_to_checkout2.click();
 	  
-	  WebElement terms = wait.until(ExpectedConditions.elementToBeClickable(By.id("cgv")));
+	  //checkout page 3
+	  WebElement go_to_checkout3 = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.button:nth-child(4) > span:nth-child(1)")));
+	  
+	  WebElement terms = driver.findElement(By.id("cgv"));
+	  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", terms);
 	  terms.click();
 	  
-	  WebElement go_to_checkout3 = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.button:nth-child(4) > span:nth-child(1)")));
 	  go_to_checkout3.click();
 	  
+	//checkout page 4
 	  WebElement payment = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".bankwire")));
 	  payment.click();
 	  
@@ -248,7 +235,9 @@ public class Aula5 {
   public void Test_print_order_reference() {
 	  WebDriverWait wait = new WebDriverWait(driver, 10);
 	  WebElement go_to_orders = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".button-exclusive")));
-	  go_to_orders.clear();
+	  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", go_to_orders);
+	  
+	  go_to_orders.click();
 	  
 	  WebElement order_ref = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".color-myaccount")));
 	  WebElement total_price = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".history_price > span:nth-child(1)")));
@@ -256,6 +245,5 @@ public class Aula5 {
 	  System.out.println(" \n Order Reference: " + order_ref.getText() + "\n Total price: " + total_price.getTagName());
 	  System.out.println("Complete");
   }
-  
 
 }

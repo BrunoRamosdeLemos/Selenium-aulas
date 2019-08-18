@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test thread-count="5" name="FirefoxTestCases(failed)">
+    <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="tests.Aula5">
+      <class name="tests.Cross">
         <methods>
-          <include name="setupTest"/>
-          <include name="registerTest"/>
+          <include name="testParameterWithXML"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- tests.Aula5 -->
+      </class> <!-- tests.Cross -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- FirefoxTestCases(failed) -->
+</suite> <!-- Failed suite [Suite] -->

@@ -2,24 +2,46 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="31993" started-at="2019-08-13T18:20:55Z" finished-at="2019-08-13T18:21:27Z">
+  <suite name="Suite" duration-ms="42249" started-at="2019-08-18T06:27:23Z" finished-at="2019-08-18T06:28:05Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="31993" started-at="2019-08-13T18:20:55Z" finished-at="2019-08-13T18:21:27Z">
-      <class name="tests.Aula5">
-        <test-method status="PASS" signature="setupTest()[pri:0, instance:tests.Aula5@22e5f96e]" name="setupTest" is-config="true" duration-ms="18900" started-at="2019-08-13T18:20:55Z" finished-at="2019-08-13T18:21:14Z">
+    <test name="FirefoxTestCases" duration-ms="26320" started-at="2019-08-18T06:27:23Z" finished-at="2019-08-18T06:27:49Z">
+      <class name="tests.Cross">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:tests.Cross@4cc0edeb]" name="setup" is-config="true" duration-ms="7625" started-at="2019-08-18T06:27:23Z" finished-at="2019-08-18T06:27:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setupTest -->
-        <test-method status="PASS" signature="Test_Title()[pri:0, instance:tests.Aula5@22e5f96e]" name="Test_Title" duration-ms="16" started-at="2019-08-13T18:21:14Z" finished-at="2019-08-13T18:21:14Z">
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="testParameterWithXML()[pri:0, instance:tests.Cross@4cc0edeb]" name="testParameterWithXML" duration-ms="18657" started-at="2019-08-18T06:27:31Z" finished-at="2019-08-18T06:27:49Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Test_Title -->
-        <test-method status="PASS" signature="registerTest()[pri:1, instance:tests.Aula5@22e5f96e]" name="registerTest" duration-ms="13034" started-at="2019-08-13T18:21:14Z" finished-at="2019-08-13T18:21:27Z">
+        </test-method> <!-- testParameterWithXML -->
+      </class> <!-- tests.Cross -->
+    </test> <!-- FirefoxTestCases -->
+    <test name="ChromeTestCases" duration-ms="15884" started-at="2019-08-18T06:27:49Z" finished-at="2019-08-18T06:28:05Z">
+      <class name="tests.Cross">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:tests.Cross@66a3ffec]" name="setup" is-config="true" duration-ms="5306" started-at="2019-08-18T06:27:49Z" finished-at="2019-08-18T06:27:55Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- registerTest -->
-      </class> <!-- tests.Aula5 -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="testParameterWithXML()[pri:0, instance:tests.Cross@66a3ffec]" name="testParameterWithXML" duration-ms="10575" started-at="2019-08-18T06:27:55Z" finished-at="2019-08-18T06:28:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testParameterWithXML -->
+      </class> <!-- tests.Cross -->
+    </test> <!-- ChromeTestCases -->
+  </suite> <!-- Suite -->
 </testng-results>
