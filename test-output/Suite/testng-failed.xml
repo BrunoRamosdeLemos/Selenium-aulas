@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test thread-count="5" name="FirefoxTestCases(failed)">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="tests.Cross">
+        <methods>
+          <include name="testParameterWithXML"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- tests.Cross -->
+    </classes>
+  </test> <!-- FirefoxTestCases(failed) -->
+</suite> <!-- Failed suite [Suite] -->
